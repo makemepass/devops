@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Registration Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    form { max-width: 320px; margin: 0 auto; }
+    label { display: block; margin-top: 12px; }
+    input[type="text"], input[type="password"] { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { margin-top: 16px; padding: 8px 12px; }
+    .error { color: red; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h2>Register</h2>
+  <form id="regForm" novalidate>
+    <label for="username">Username</label>
+    <input id="username" name="username" type="text" required autocomplete="username">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" required minlength="6" autocomplete="new-password">
+
+    <label for="confirm">Confirm Password</label>
+    <input id="confirm" name="confirm" type="password" required minlength="6" autocomplete="new-password">
+
+    <div id="err" class="error" aria-live="polite"></div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('regForm');
+    const pwd = document.getElementById('password');
+    const conf = document.getElementById('confirm');
+    const err = document.getElementById('err');
+
+    form.addEventListener('submit', function(e){
+      err.textContent = '';
+      if (!form.checkValidity()) {
+        // Let browser show built-in validation messages
+        return;
+      }
+      if (pwd.value !== conf.value) {
+        e.preventDefault();
+        err.textContent = 'Passwords do not match.';
+        conf.focus();
+        return;
+      }
+
+      // For this simple example we'll just show a success message.
+      e.preventDefault();
+      alert('Registered: ' + document.getElementById('username').value);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
