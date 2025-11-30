@@ -1,0 +1,29 @@
+##3. Create a Jenkins Pipeline with Build → Test → Deploy stages, each printing its stage name.##
+
+Jenkins → New Item → name it → choose Pipeline → OK.
+In the job config, under Pipeline → Definition select Pipeline script.
+Paste the Jenkinsfile content above into the script box → Save → Build Now.
+
+pipeline {
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        echo 'Build'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        echo 'Test'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'Deploy'
+      }
+    }
+  }
+}
