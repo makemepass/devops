@@ -1,0 +1,62 @@
+##Create a Docker Compose setup to run two simple applications together.##
+
+docker-compose.yml
+
+version: "3.8"
+services:
+  app1:
+    build: ./app1
+    ports:
+      - "5000:5000"
+  app2:
+    build: ./app2
+    ports:
+      - "8001:6000"
+
+
+app.py
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from App 1"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+
+
+app.py ka Dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY . .
+RUN pip install flask
+
+CMD ["python", "app.py"]
+
+
+
+app.py
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from App 2"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=6000)
+
+
+Dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+COPY . .
+RUN pip install flask
+
+CMD ["python", "app.py"]
