@@ -1,0 +1,75 @@
+##Develop a containerized web application in Docker consisting of Registration + Login form.##
+
+regform_loginpage.html
+
+ <!doctype html>
+<html>
+<body style="font-family:Arial">
+
+<h2>Registration</h2>
+Username: <input id="ru"><br><br>
+Password: <input id="rp" type="password"><br><br>
+<button onclick="reg()">Register</button>
+
+<h2>Login</h2>
+Username: <input id="lu"><br><br>
+Password: <input id="lp" type="password"><br><br>
+<button onclick="log()">Login</button>
+
+<h3 id="msg" style="color:blue"></h3>
+
+<script>
+function reg() {
+  let u = document.getElementById("ru").value;
+  let p = document.getElementById("rp").value;
+  if(!u || !p){ document.getElementById("msg").innerHTML="Enter username & password"; return; }
+  if(localStorage.getItem(u)){
+    document.getElementById("msg").innerHTML="User already exists!";
+  } else {
+    localStorage.setItem(u, p);
+    document.getElementById("msg").innerHTML="Registered successfully!";
+  }
+}
+
+function log() {
+  let u = document.getElementById("lu").value;
+  let p = document.getElementById("lp").value;
+  let saved = localStorage.getItem(u);
+
+  if(saved === p){
+    document.getElementById("msg").innerHTML="Login successful!";
+  } else {
+    document.getElementById("msg").innerHTML="Invalid credentials!";
+  }
+}
+</script>
+</body>
+</html>
+
+
+
+
+app.py
+
+from flask import Flask, render_template
+app = Flask(__name__)
+@app.route("/")
+def home():
+    return render_template("reg_form_and_login_page.html")
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+
+Dockerfile
+
+FROM python:3.10-slim
+WORKDIR /app
+RUN pip install flask
+COPY . .
+EXPOSE 5000
+CMD ["python", "app.py"]
+
+
+commands:
+docker build -t folder_name .
+docker run -p 5000:5000 folder_name
