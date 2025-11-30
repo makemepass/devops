@@ -1,0 +1,26 @@
+Step-by-step setup
+1) Create a new Freestyle project
+Open Jenkins → click New Item
+Enter a name (example: welcome-job)
+Select Freestyle project
+Click OK
+
+2) Add a String Parameter
+Inside the job:
+Scroll to This project is parameterized
+Check the box
+Click Add Parameter → String Parameter
+Fill in:
+Name: STUDENT_NAME
+Default Value: Noshank (or leave empty)
+Description: Enter your name
+
+3) Add a build step
+Scroll to Build → Add build step → Execute Windows batch command
+command:
+echo Hello %STUDENT_NAME%, Welcome to Jenkins!
+
+4) Save and Build the job
+Click Build with Parameters, enter a name, and run it.
+You’ll see output like:
+Hello Noshank, Welcome to Jenkins!
