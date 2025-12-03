@@ -1,0 +1,57 @@
+##resume.html
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Resume</title>
+</head>
+<body style="font-family:Arial, sans-serif; max-width:700px; margin:30px auto;">
+
+  <h1>Noshank Student</h1>
+  <p>Email: noshank@example.com | Phone: 9876543210</p>
+
+  <h2>Education</h2>
+  <ul>
+    <li>B.Tech in Computer Science — MGIT, 2024</li>
+    <li>High School — ABC High School, 2020</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <ul>
+    <li>Python, Java, HTML/CSS</li>
+    <li>Git, Docker</li>
+  </ul>
+
+  <h2>Projects</h2>
+  <ul>
+    <li>Resume Builder — simple web app that generates PDF resumes</li>
+    <li>Todo App — CRUD app with local storage</li>
+  </ul>
+
+</body>
+</html>
+
+
+
+
+
+##commands
+# 1. create folder and move file (optional)
+mkdir my-resume
+mv resume.html my-resume/
+cd my-resume
+
+# 2. init git and commit
+git init
+git add resume.html
+git commit -m "Add simple resume page"
+
+# 3. set main branch
+git branch -M main
+
+# 4. add remote (create an empty repo on GitHub first and copy its URL)
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+
+# 5. push
+git push -u origin main
