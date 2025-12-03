@@ -1,0 +1,26 @@
+1) Make sure you are inside your project folder
+Example:
+cd C:\Users\nosha\devops_story_book
+
+2) Create a new branch
+git checkout -b bio-update
+This creates and switches to a new branch.
+
+3) Create a file (or edit an existing one)
+Let’s create a simple file named bio.txt:
+echo My hobbies: > bio.txt
+echo - Reading >> bio.txt
+echo - Coding >> bio.txt
+echo - Playing games >> bio.txt
+If you're on Ubuntu/Bash, same commands work.
+If you're on PowerShell, also works fine.
+
+4) Add the file to Git
+git add bio.txt
+
+5) Commit the change
+git commit -m "Added hobbies to bio.txt"
+
+6) Push the branch to GitHub
+Replace the URL if needed.
+git push -u origin bio-update
