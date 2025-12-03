@@ -34,3 +34,17 @@
 
 
 
+#commands
+mkdir profile-card
+mv profile-card.html profile-card/
+cd profile-card
+git init
+git add profile-card.html
+git commit -m "Add profile card page"
+# rename main branch (recommended)
+git branch -M main
+# create a repository on GitHub (via website) and copy the repo URL, then:
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+# push to GitHub
+git push -u origin main
+
