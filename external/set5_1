@@ -1,0 +1,50 @@
+##favourites.html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Favorites</title>
+</head>
+<body>
+
+  <h1>My Favorite Books and Movies</h1>
+
+  <h2>Books</h2>
+  <ul>
+    <li>Harry Potter</li>
+    <li>The Alchemist</li>
+    <li>Atomic Habits</li>
+  </ul>
+
+  <h2>Movies</h2>
+  <ul>
+    <li>Inception</li>
+    <li>Interstellar</li>
+    <li>Avengers</li>
+  </ul>
+
+</body>
+</html>
+
+
+
+
+
+command
+
+# create folder for the project (optional)
+mkdir favorites-page
+mv favorites.html favorites-page/
+cd favorites-page
+
+# create git repo and commit
+git init
+git add favorites.html
+git commit -m "Add simple favorites page"
+
+# make branch main
+git branch -M main
+
+# create an empty repo on GitHub (use the website) and copy its URL,
+# then add remote and push. Replace <URL> with your repo URL.
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
