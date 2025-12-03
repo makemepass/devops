@@ -1,0 +1,26 @@
+Step 1: Create a New Freestyle Job
+Open Jenkins → New Item
+Enter name: print-datetime
+Choose Freestyle project
+Click OK
+
+Step 2: Add a Schedule (Runs every 2 minutes)
+Scroll to Build Triggers → check Build periodically
+In the schedule box, type:
+H/2 * * * *
+This means:
+✔ Run every 2 minutes
+
+Step 3: Add Build Step (Print date/time)
+Scroll to Build → click Add build step → choose:
+For Windows
+(select "Execute Windows batch command")
+
+echo Current date/time:
+date /T
+time /T
+
+Step 4: Save & Run
+Click Save.
+Jenkins will now automatically run the job every 2 minutes and show the output in:
+Build → Console Output
