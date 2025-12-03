@@ -1,0 +1,53 @@
+1. Open NetBeans → Create a new Java project
+File → New Project
+Choose: Java with Ant → Java Application
+Name it: SeleniumTest
+
+2. Add Selenium JARs
+You must download Selenium:
+✔ Download Selenium latest from here:
+https://www.selenium.dev/downloads/
+You will get a ZIP → extract it.
+Inside, you will find a folder:
+selenium-java-<version>/
+   ├── selenium-java.jar
+   ├── selenium-api.jar
+   ├── ... (many JARs)
+   └── libs/  (has more JARs)
+Add all JARs:
+NetBeans → Right-click your project → Properties
+→ Libraries → Add JAR/Folder
+→ Select:
+everything inside the main folder
+everything inside libs folder
+
+3. Add ChromeDriver
+Download ChromeDriver matching your Chrome version:
+https://googlechromelabs.github.io/chrome-for-testing/
+Put it inside your project folder:
+SeleniumTest/
+   ├── chromedriver.exe
+   ├── src/
+   └── nbproject/
+
+4. Paste this code in NetBeans
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class TestWebsites {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.google.com");
+        System.out.println("Opened Google");
+        driver.findElement(By.name("q")).sendKeys("MGIT Hyderabad");
+        driver.findElement(By.name("q")).submit();
+        System.out.println("Searched MGIT");
+        driver.get("https://mgit.ac.in");
+        System.out.println("Opened MGIT website");
+        driver.quit();
+    }
+}
+
+5. Click Run → It works
+NetBeans handles everything for you.
