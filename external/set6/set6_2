@@ -1,0 +1,52 @@
+##basic kubectl commands
+
+1. Check cluster info
+kubectl cluster-info
+
+2. See all nodes in the cluster
+kubectl get nodes
+
+3. See all pods
+kubectl get pods
+
+All pods in all namespaces
+kubectl get pods -A
+
+4. Describe a pod
+
+(Shows details, logs, events)
+
+kubectl describe pod <pod-name>
+
+5. Check logs of a pod
+kubectl logs <pod-name>
+
+6. Apply a YAML file (create/update resources)
+kubectl apply -f file.yaml
+
+7. Delete a resource
+kubectl delete -f file.yaml
+
+Delete a pod directly
+kubectl delete pod <pod-name>
+
+8. Create a deployment
+kubectl create deployment myapp --image=nginx
+
+9. Check deployments
+kubectl get deployments
+
+10. Expose deployment as a service
+kubectl expose deployment myapp --type=NodePort --port=80
+
+11. View all services
+kubectl get svc
+
+12. Edit a running resource
+kubectl edit deployment myapp
+
+13. Scale deployment
+kubectl scale deployment myapp --replicas=3
+
+14. Delete a deployment
+kubectl delete deployment myapp
