@@ -1,0 +1,67 @@
+##timetable.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Simple Timetable</title>
+</head>
+<body>
+
+  <h2>Weekly Timetable</h2>
+
+  <table border="1" cellpadding="6">
+    <tr>
+      <th>Time</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+    </tr>
+
+    <tr>
+      <td>09:00 - 10:00</td>
+      <td>Math</td>
+      <td>Physics</td>
+      <td>Math</td>
+      <td>Computer</td>
+      <td>English</td>
+    </tr>
+
+    <tr>
+      <td>10:15 - 11:15</td>
+      <td>Chemistry</td>
+      <td>Computer</td>
+      <td>Biology</td>
+      <td>Math</td>
+      <td>Physics</td>
+    </tr>
+
+    <tr>
+      <td>11:30 - 12:30</td>
+      <td>Lab</td>
+      <td>English</td>
+      <td>Physics</td>
+      <td>Chemistry</td>
+      <td>Free</td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
+
+
+
+
+##commands
+mkdir weekly-timetable
+mv timetable.html weekly-timetable/
+cd weekly-timetable
+git init
+git add timetable.html
+git commit -m "Add simple weekly timetable"
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
