@@ -1,0 +1,36 @@
+mkdir story-book
+cd story-book
+git init
+echo "<h1>My Story Book</h1>" > book.html
+git add book.html
+git commit -m "Initial book file"
+git checkout -b chapter1
+echo "<h2>Chapter 1</h2><p>This is the first chapter of the story.</p>" >> book.html
+git add book.html
+git commit -m "Add Chapter 1"
+git checkout main
+git checkout -b chapter2
+echo "<h2>Chapter 2</h2><p>This is the second chapter of the story.</p>" >> book.html
+git add book.html
+git commit -m "Add Chapter 2"
+git checkout main
+git merge chapter1
+git merge chapter2
+git remote add origin <your-repo-url>
+git push -u origin main
+
+
+
+
+
+book.html
+<h1>My Story Book</h1>
+
+<h2>Chapter 1</h2>
+<p>This is the first chapter of the story.</p>
+
+<h2>Chapter 2</h2>
+<p>This is the second chapter of the story.</p>
+
+<h2>Chapter 3</h2>
+<p>This is the third chapter of the story.</p>
