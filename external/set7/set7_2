@@ -1,0 +1,50 @@
+##Dockerfile
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY resume.html /usr/share/nginx/html/index.html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+##resume.html
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Resume</title>
+</head>
+<body style="font-family:Arial, sans-serif; max-width:700px; margin:30px auto;">
+
+  <h1>Alex Student</h1>
+  <p>Email: alex@example.com | Phone: 9876543210</p>
+
+  <h2>Education</h2>
+  <ul>
+    <li>B.Tech in Computer Science — MGIT, 2024</li>
+    <li>High School — ABC High School, 2020</li>
+  </ul>
+
+  <h2>Skills</h2>
+  <ul>
+    <li>Python, Java, HTML/CSS</li>
+    <li>Git, Docker</li>
+  </ul>
+
+  <h2>Projects</h2>
+  <ul>
+    <li>Resume Builder — simple web app that generates PDF resumes</li>
+    <li>Todo App — CRUD app with local storage</li>
+  </ul>
+
+</body>
+</html>
+
+
+
+
+#commands
+docker build -t resume-app .
+docker run -p 8080:80 resume-app
+http://localhost:8080
+
+
