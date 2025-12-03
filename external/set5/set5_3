@@ -1,0 +1,22 @@
+guessgame.py
+
+import random
+num = random.randint(1,5)
+guess = int(input("Guess a number between 1 and 5: "))
+if guess == num:
+    print("Correct!")
+else:
+    print("Wrong! The number was", num)
+
+
+Dockerfile
+
+FROM python:3.9
+COPY game.py /app/game.py
+WORKDIR /app
+CMD ["python3", "game.py"]
+
+
+commands
+ docker build -t game .
+ docker run -it game
