@@ -1,0 +1,48 @@
+##deploy.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculator-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calculator
+  template:
+    metadata:
+      labels:
+        app: calculator
+    spec:
+      containers:
+      - name: calculator
+        image: yourdockerusername/java-calculator:v1
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculator-service
+spec:
+  type: NodePort
+  selector:
+    app: calculator
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+
+
+
+
+
+#commands
+docker build -t java-calculator .
+docker tag java-calculator yourdockerusername/java-calculator:v1
+docker push yourdockerusername/java-calculator:v1
+nano deploy.yaml(put above deploy.yaml content here)
+kubectl apply -f deploy.yaml
+kubectl get pods
+kubectl get deploy
+kubectl get svc
+
