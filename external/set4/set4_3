@@ -31,23 +31,27 @@ SeleniumTest/
    └── nbproject/
 
 4. Paste this code in NetBeans
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-public class TestWebsites {
+ import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class FirstSeleniumPro {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://www.google.com");
-        System.out.println("Opened Google");
-        driver.findElement(By.name("q")).sendKeys("MGIT Hyderabad");
-        driver.findElement(By.name("q")).submit();
-        System.out.println("Searched MGIT");
-        driver.get("https://mgit.ac.in");
-        System.out.println("Opened MGIT website");
-        driver.quit();
+        // Optionally set system property if needed:
+        WebDriver driver = new EdgeDriver();
+        try {
+            driver.get("https://www.google.com");
+            System.out.println("Title: " + driver.getTitle());
+            Thread.sleep(10000); 
+            driver.get("https://mgit.ac.in/");
+// wait so you can see the browser
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            driver.quit();
+        }
     }
 }
+
 
 5. Click Run → It works
 NetBeans handles everything for you.
